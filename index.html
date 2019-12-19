@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<meta name="theme-color" content="#c73838">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:300&display=swap" rel="stylesheet"/>
+		<style>
+			body
+			{
+				font-family: 'Montserrat', sans-serif;
+				font-size: 125px;
+    			padding: 65px;				
+			}
+
+			button
+			{
+			    font-size: 100px;
+			    font-family: 'Montserrat';
+			    background-color: white;
+			    border-color: hsl(0, 56%, 50%);
+			    border-style: solid;
+			    padding-left: 115px;
+			    padding-right: 115px;
+			    padding-top: 25px;
+			    padding-bottom: 25px;
+			    margin: 75px;
+			    color: hsla(0, 56%, 50%, 1);
+			    border-radius: 103px;
+			    border-width: thick;			
+			}
+
+			.category
+			{
+				font-size: 35px;
+			    color: grey;
+			    margin-top: 25px;			
+			}
+
+		</style>
+	</head>
+	<body>
+		<script>
+			initialTitleCards = ['This is a game to spend time with other people, whether they are your best friends or complete strangers.','Here\'s how it works.','The game will show a prompt, like \'Being late the airport\', and the first person who can come up with an anecdote related to this can tell it.', 'After that, somebody else can tell an anecdote related to the prompt OR the previous story.','This goes on until nobody can think of anything. Then, the group decides whose story was most entertaining. This person gets a point.','When the group feels like the game is over, the person with most points wins.','Each prompt also has a category. As a variation, the winner could be the person with points in the most categories.','Here we go.']
+
+			prompts = [['(Almost) missing a train/boat/airplane','Travel'],['Lost luggage during travel','Travel'],['Witnessing crime abroad','Travel'],['Trouble with the authorities abroad','Travel'],['Getting lost abroad','Travel'],['Strange other passengers','Travel'],['A really nice stranger','Travel'],['Stuck in traffic for hours','Travel'],['The worst holiday ever','Travel'],['Children saying inappropriate things','Childhood'],['Children embarrassing their parents','Childhood'],['Funny remarks by kids','Childhood'],['As I child I wanted to be called ...','Childhood'],['As I child I was really afraid of ...','Childhood'],['Children getting lost','Childhood'],['Earliest memories','Childhood'],['Running away from home','Childhood'],['Being naughty as a child','Childhood'],['The best/worst gift you got as a child','Childhood'],['Children mispronouncing things','Childhood'],['The first movie you saw at the cinema','Childhood'],['Riding the train without paying','Bad behavior'],['Going to the cinema without paying','Bad behavior'],['Completely forgetting an appointment','Bad behavior'],['Neighbours complaining about you','Bad behavior'],['Getting really drunk at a party','Bad behavior'],['People getting angy in public','Bad behavior'],['A lie that backfired ','Bad behavior'],['Accidentally stealing something from a shop','Bad behavior'],['This person really hates me because ...','Bad behavior'],['I did all this work for nothing','Work, sleep, repeat'],['Breaking equipment at work','Work, sleep, repeat'],['This job interview did not go well','Work, sleep, repeat'],['The most terrible job I had was ...','Work, sleep, repeat'],['Lazy colleagues (not) getting away with it','Work, sleep, repeat'],['I always dream about','Work, sleep, repeat'],['The weirdest dream I had','Work, sleep, repeat'],['The longest you have ever been awake','Work, sleep, repeat'],['The weirdest place you ever fell asleep','Work, sleep, repeat'],['A long waiting time for the doctor','Complaints'],['Something gross in your meal at a restaurant','Complaints'],['This was not what I had in mind when I ordered this meal','Complaints'],['Complaints about your neighbours','Complaints'],['The worst customer service you ever had','Complaints'],['Technology failing at a crucial moment','Complaints'],['Rude staff behind the counter','Complaints'],['This haircut did not turn out as intended','Complaints'],['The worst movie/play ever','Complaints'],['Witnessing an accident','Coincidences and (bad) luck'],['A really unlikely encounter','Coincidences and (bad) luck'],['Two people you did not know knew each other','Coincidences and (bad) luck'],['Getting free stuff by accident','Coincidences and (bad) luck'],['Meeting a famous person','Coincidences and (bad) luck'],['Winning a contest or the lottery ','Coincidences and (bad) luck'],['Calling the alarm number','Coincidences and (bad) luck'],['People falling in water','Coincidences and (bad) luck'],['The best thing you\'ve ever bought','Coincidences and (bad) luck'],['I met my current SO at ...','Love and friendship'],['My SO and I always fight about ...','Love and friendship'],['A friend saving your face','Love and friendship'],['I did not know this about my SO / friend !','Love and friendship'],['The coolest pickup line or trick you ever saw (or executed!)','Love and friendship'],['The worst pickup line or trick you ever saw','Love and friendship'],['The weirdest nickname I ever got was...','Love and friendship'],['A surprise party that did (not) work out','Love and friendship'],['Accidentally sending an e-mail halfway','Things going wrong'],['Texting something else than you intended','Things going wrong'],['Texting something to the wrong person','Things going wrong'],['Losing a bet','Things going wrong'],['Unpleasant encounters with animals','Things going wrong'],['Cooking this meal did not give the intended result','Things going wrong'],['This DIY initiative did not turn out as intended','Things going wrong'],['Accidentally seeing people naked','Things going wrong'],['People mishearing or miswriting your name','Things going wrong'],['A bill way higher than expected','Things going wrong']];
+
+
+			titleCardIndex = 0
+
+			function nextTitleCard()
+			{
+				if (titleCardIndex < 7)
+				{
+					titleCardIndex++;	
+					document.getElementById('main_text').innerHTML = initialTitleCards[titleCardIndex];				
+				}
+				else
+				{
+					choice = prompts[Math.floor(Math.random() * prompts.length)];
+					prompt = choice[0];
+					category = choice[1];
+					document.getElementById('main_text').innerHTML = prompt + '<div class=category>'+category+'</div>';
+				}
+			}
+		</script>
+		<div id="main_text">This is a game to spend time with other people, whether they are your best friends or complete strangers.</div>
+		<button onclick="nextTitleCard()">Next</button>
+	</body>
+</html>
